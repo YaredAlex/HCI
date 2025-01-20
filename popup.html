@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+</head>
+<script defer src="popup.js"></script>
+<body>
+    <style>
+        *,::before,::after{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            cursor: default;
+        }
+        :root{
+            --primary: #2F8D46;
+            --gray-light: #edecec;
+        }
+        button{
+            display: block;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+
+        }
+        .acc-header{
+            display: flex;
+            padding: 12px 12px;
+            color: white;
+            position: relative;
+            justify-content: center;
+        }
+        .acc-control{
+            position: absolute;
+            right: 12px;
+            display: flex;
+            gap: 8px;
+        }
+        #accessibility_window{
+            border: 1px solid black;
+            border-radius:5px;
+            width: 480px;
+            display: none;
+            /* padding: 12px; */
+        }
+        .bg-primary{
+            background-color: var(--primary);
+        }
+        .bg-gray-light{
+            background-color: var(--gray-light);
+        }
+        .text-primary{
+            color: var(--primary);
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            max-width: 140px;
+            width: 100%;
+            padding: 16px 4px;
+            row-gap: 12px;
+            border-radius: 5px;
+            background-color: var(--gray-light);
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s linear;
+        }
+        .card:hover{
+            border: 2px solid var(--primary);
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+        .active{
+            border: 2px solid var(--primary) !important;
+        }
+        .img-container{
+            /* width: ; */
+        }
+        .img-container img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            vertical-align: middle;
+        }
+        #accessibility_color,#accessibility_content{
+            padding: 12px 12px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .cursor_pointer{
+            cursor: pointer;
+        }
+        .hide{
+            display: none;
+        }
+        .show{
+            display: block !important;
+        }
+        #floating_btn{
+            border: 10px solid var(--primary);
+            border-radius: 50%;
+            height: 90px;
+            width: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+        }
+        #floating_btn span{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+        }
+    </style>
+    <!-- Floating button -->
+     <button id="floating_btn" class="cursor_pointer">
+        <span>
+            <img src="/assets/person.png" alt="accessibility">
+        </span>
+     </button>
+    <div id="accessibility_window">
+        <!-- option -->
+         <div id="accessibility_option" class="bg-primary">
+            <div class="acc-header">
+                <h3>Accessibility Options</h3>
+                <div class="acc-control">
+                    <!-- setting and close -->
+                     <div class="img_container"><img src="/assets/setting.png" alt="setting"></div>
+                     <div class="img_container cursor_pointer" id="close_btn"><img src="/assets/close.png" alt="close"></div>
+                </div>
+            </div>
+         </div>
+        <!-- Color section -->
+         <div class="acc-container">
+            <p class="" style="margin-top: 12px;">Color</p>
+            <section id="accessibility_color">
+        
+            </section>
+         </div>
+       
+        <!-- content section -->
+        <div class="acc-container">
+            <p class="" style="margin-top: 12px;">Content</p>
+            <section id="accessibility_content">
+
+            </section>
+        </div>
+    </div>
+</body>
+</html>
